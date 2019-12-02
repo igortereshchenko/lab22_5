@@ -1,0 +1,70 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+
+    <div class="col-md-6 mx-auto">
+
+        <!-- form card login -->
+        <div class="card rounded-0">
+
+            <div class="card-header">
+                <h3 class="mb-0">{{ form_name }}</h3>
+            </div>
+            <div class="card-body">
+
+                <form class="form" action="/{{ action }}" method=post>
+                    {{ form.hidden_tag() }}
+
+                    <div class="form-group">
+                        {{ form.rs_info.label }}
+                        {{ form.rs_info(class_="form-control") }}
+
+                        {% if form.rs_info.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {% for message in form.rs_info.errors %}
+                                    <div>{{ message }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.tc_info.label }}
+                        {{ form.tc_info(class_="form-control") }}
+
+                        {% if form.tc_info.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {% for message in form.tc_info.errors %}
+                                    <div>{{ message }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        {{ form.rs_activity.label }}
+                        {{ form.rs_activity(class_="form-control") }}
+
+                        {% if form.rs_activity.errors %}
+                            <div class="alert alert-danger" role="alert">
+                                {% for message in form.rs_activity.errors %}
+                                    <div>{{ message }}</div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    {{ form.submit(class_="btn btn-success") }}
+                </form>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    </div>
+
+
+
+
+{% endblock %}
